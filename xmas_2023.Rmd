@@ -1,0 +1,80 @@
+---
+title: ""
+author: ""
+date: ""
+output: html_document
+---
+<div align="center"><font size='8' color='black'><b>Thank You for Everything!</font></div>
+<div align="center"><span style="color: red;">We appreciate your support and collaboration!</span></div>
+```{r setup, include=FALSE, message=FALSE, echo=FALSE}
+knitr::opts_chunk$set(echo = FALSE, out.width = "100%", message=FALSE)
+```
+
+```{r }
+library(plotly)
+
+set.seed(24)
+
+n_tree <- 1000
+n_ornaments <- 20
+n_lights <- 300
+
+# Generate spiral data points
+x <- c()
+y <- c()
+z <- c()
+
+for (i in 1:n_tree) {
+    r <- i / 30
+    x <- c(x, r * cos(i / 30))
+    y <- c(y, r * sin(i / 30))
+    z <- c(z, n_tree - i)
+}
+
+tree <- data.frame(x, y, z)
+
+# Sample for ornaments:
+#   - sample n_ornaments points from the tree spiral
+#   - modify z so that the ornaments are below the line
+#   - color column: optional, add if you want to add color range to ornaments
+ornaments <- tree[sample(nrow(tree), n_ornaments), ]
+ornaments$z <- ornaments$z - 50
+ornaments$color <- 1:nrow(ornaments)
+
+# Sample for lights:
+#   - sample n_lights points from the tree spiral
+#   - Add normal noise to z so the lights spread out
+lights <- tree[sample(nrow(tree), n_lights), ]
+lights$x <- lights$x + rnorm(n_lights, 0, 20)
+lights$y <- lights$y + rnorm(n_lights, 0, 20)
+lights$z <- lights$z + rnorm(n_lights, 0, 20)
+
+# hide axes
+ax <- list(
+    title = "",
+    zeroline = FALSE,
+    showline = FALSE,
+    showticklabels = FALSE,
+    showgrid = FALSE
+)
+
+plot_ly() %>%
+    add_trace(data = tree, x = ~x, y = ~y, z = ~z,
+              type = "scatter3d", mode = "lines",
+              line = list(color = "#1A8017", width = 7)) %>%
+    add_markers(data = ornaments, x = ~x, y = ~y, z = ~z,
+                type = "scatter3d",
+                marker = list(color = ~color,
+                              colorscale = list(c(0,'#EA4630'), c(1,'#CF140D')),
+                              size = 15)) %>%
+    add_markers(data = lights, x = ~x, y = ~y, z = ~z,
+                type = "scatter3d",
+                marker = list(color = "#FDBA1C", size = 3, opacity = 0.8)) %>%
+    layout(scene = list(xaxis=ax, yaxis=ax, zaxis=ax), showlegend = FALSE)
+```
+
+```{r eval=F}
+# rename the html
+file.copy(from = 'xmas_2023.html', to= 'index.html')
+```
+
