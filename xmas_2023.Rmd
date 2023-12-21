@@ -13,7 +13,7 @@ knitr::opts_chunk$set(echo = FALSE, out.width = "100%", message=FALSE)
 ```{r }
 library(plotly)
 
-set.seed(24)
+set.seed(123)
 
 n_tree <- 1000
 n_ornaments <- 20
@@ -75,6 +75,6 @@ plot_ly() %>%
 
 ```{r eval=F}
 # rename the html
-file.copy(from = 'xmas_2023.html', to= 'index.html')
+file.copy(from = 'xmas_2023.html', to= 'index.html', overwrite = TRUE)
 ```
 
