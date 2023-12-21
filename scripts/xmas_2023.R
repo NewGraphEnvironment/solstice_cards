@@ -43,7 +43,7 @@ plot <- ggplot(df, aes(x = Happy, y = Holidays, fill = part)) + geom_bar(stat="i
 plot_email <- add_ggplot(plot)
 
 # include the logo
-logo_footer <- blastula::add_image(file = 'fig/logo_newgraph/BLACK/PNG/nge-full_black.png')
+logo_footer <- blastula::add_image(file = 'fig/nge-full_black.png')
 
 
 email <- compose_email(
@@ -59,7 +59,9 @@ email <- compose_email(
   footer = md(glue(
     "This card was inspired by an article and code written by Greta Gasparac - here at https://towardsdatascience.com/christmas-cards-81e7e1cce21c.
     <br>
-    See the code we used to produce it here https://github.com/NewGraphEnvironment
+    See an interactive online version of the card here https://newgraphenvironment.com/solstice_cards
+    <br>
+    See the code we used to produce them both here https://github.com/NewGraphEnvironment/solstice_cards
 
     {logo_footer}"))
 )

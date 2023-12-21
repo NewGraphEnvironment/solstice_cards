@@ -73,6 +73,21 @@ plot_ly() %>%
     layout(scene = list(xaxis=ax, yaxis=ax, zaxis=ax), showlegend = FALSE)
 ```
 
+<center>
+
+This card was inspired by an article and code written by Greta Gasparac - [here](https://towardsdatascience.com/christmas-cards-81e7e1cce21c).
+<br>
+See the code we used to produce it [here](https://github.com/NewGraphEnvironment/solstice_cards)
+
+<center>
+
+<br>
+
+```{r out.width='25%', fig.align="center"}
+# include the logo
+knitr::include_graphics(path = 'fig/nge-full_black.png')
+```
+
 ```{r eval=F}
 # rename the html
 file.copy(from = 'xmas_2023.html', to= 'index.html', overwrite = TRUE)
