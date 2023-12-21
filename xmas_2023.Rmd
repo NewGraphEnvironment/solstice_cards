@@ -75,6 +75,10 @@ plot_ly() %>%
 
 <center>
 
+Try moving the tree around with the mouse - neeto!
+
+<br>
+
 This card was inspired by an article and code written by Greta Gasparac - [here](https://towardsdatascience.com/christmas-cards-81e7e1cce21c).
 <br>
 See the code we used to produce it [here](https://github.com/NewGraphEnvironment/solstice_cards)
