@@ -76,34 +76,11 @@ email %>%
   )
 
 # or make a list of people to send it to
-l <- c('joethorley@poissonconsulting.ca',
-       'brandon.geldart@sernbc.ca',
-       'John.DeGagne@gov.bc.ca',
-       'snorris@hillcrestgeo.ca',
-       'mike@keefereco.com',
-       'lucy@newgraphenvironment.com',
+
+l <- c('lucy@newgraphenvironment.com',
        'tara@newgraphenvironment.com',
        'mateo@newgraphenvironment.com',
-       'al@newgraphenvironment.com',
-       'mfjeld@nupqu.com',
-       'jeremy.phelan@steerenvironmental.com',
-       'Craig.Mount@gov.bc.ca',
-       'David.Maloney@gov.bc.ca ',
-       'Mya.Eastmure@gov.bc.ca',
-       'Chelsea.Regina@bchydro.com',
-       'afernando@gitksanwatershed.com',
-       'jamesbaxternelson@gmail.com',
-       'iraleeanderson@gmail.com',
-       'ico@masseenvironmental.com',
-       'fiona@masseenvironmental.com',
-       'tyson@masseenvironmental.com',
-       'chaz.ware@gitxsanbusiness.com',
-       'emily.hirai@gitxsanbusiness.com',
-       'vernon.joseph@wetsuweten.com',
-       'tlucoordinator@mlib.ca',
-       'parimtee@yahoo.com',
-       'tyler.weir@gov.bc.ca'
-)
+       'al@newgraphenvironment.com',)
 
 
 # make a function to send them all
@@ -120,3 +97,4 @@ email_send_batch <- function(recip){
 # and go ahead and mail it to the whole list
 l %>%
   purrr::map(email_send_batch)
+
