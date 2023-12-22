@@ -75,7 +75,7 @@ email %>%
     credentials = creds_key(id = "gmail")
   )
 
-# or make a list of people to send it to
+# or make a list of people to send it to.  Moved actual list to mybookdown-template/scripts
 
 l <- c('lucy@newgraphenvironment.com',
        'tara@newgraphenvironment.com',
