@@ -1,17 +1,15 @@
-library(ggplot2)
-library(blastula)
-library(glue)
-
-# this is how we set up the key
-# create_smtp_creds_key(
+# this is how we set up the key to access our account
+# blastula::create_smtp_creds_key(
 #   id = "gmail",
 #   user = "al@newgraphenvironment.com",
 #   provider = "gmail",
 #   overwrite = TRUE
 # )
 
+# grab the raw image built with our prompt
 img <- magick::image_read("fig/peace_2025.png")
 
+# annotation for the image
 quote_text <- paste(
   "“Well - well, everyone knows how to dance.",
   "There’s only so much time.”",
@@ -32,8 +30,10 @@ img_with_quote <- img |>
     strokewidth = 1
   )
 
+# write the annotated image to file
 magick::image_write(img_with_quote, path = "fig/peace_2025_quote.png")
 
+# build the email body
 email_body <- blastula::add_image(
   file = 'fig/peace_2025_quote.png',
   width = "75%"
@@ -74,7 +74,7 @@ email <- blastula::compose_email(
 footer = blastula::md(glue::glue(
   "
 See how this card was made:
-[Script](https://github.com/NewGraphEnvironment/solstice_cards/blob/main/scripts/xmas_2025.R) .
+[Script](https://github.com/NewGraphEnvironment/solstice_cards/blob/main/scripts/xmas_2025.R) -
 [Prompt](https://github.com/NewGraphEnvironment/solstice_cards/blob/main/scripts/prompt_2025.txt)
 
 <br>
