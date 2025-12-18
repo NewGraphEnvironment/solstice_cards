@@ -37,7 +37,7 @@ magick::image_write(img_with_quote, path = "fig/peace_2025_quote.png")
 email_body <- blastula::add_image(
   file = 'fig/peace_2025_quote.png',
   width = "75%"
-  )
+)
 
 # include the logo
 logo_footer <- blastula::add_image(
@@ -50,29 +50,26 @@ email <- blastula::compose_email(
     "
 <div style='text-align:center; line-height:1.4;'>
 
-  <div style='font-size:18px; color:#222222; font-weight:600;'>
-    Thank You For Everything
+  <div style='font-size:24px; font-weight:700; margin-top:6px; letter-spacing:0.3px;'>
+    <span style='color:#0b7d2b;'>Happy Solstice</span>
+    <span style='color:#333333;'> and </span>
+    <span style='color:#b22222;'>Merry Christmas</span>
   </div>
 
-  <div style='font-size:24px; color:#0b7d2b; font-weight:700; margin-top:6px;'>
-    Happy Solstice and Merry Christmas!
-  </div>
-
-  <div style='font-size:14px; color:#b22222; margin-top:4px;'>
-    We appreciate your spirit of collaboration
+  <div style='font-size:14px; color:#444444; margin-top:6px;'>
+    We're grateful for your support and partnership - thank you for the trust and teamwork.
   </div>
 
 </div>
 "
-  )
-  ),
+  )),
 
   body = blastula::md(c(
 
     email_body
   )),
-footer = blastula::md(glue::glue(
-  "
+  footer = blastula::md(glue::glue(
+    "
 See how this card was made:
 [Script](https://github.com/NewGraphEnvironment/solstice_cards/blob/main/scripts/xmas_2025.R) -
 [Prompt](https://github.com/NewGraphEnvironment/solstice_cards/blob/main/scripts/prompt_2025.txt)
@@ -81,7 +78,7 @@ See how this card was made:
 
 {logo_footer}
 "
-))
+  ))
 )
 
 # send just one email
@@ -96,9 +93,9 @@ email |>
 # or make a list of people to send it to.  Moved actual list to mybookdown-template/scripts
 
 l <- c(
-  'lucy@newgraphenvironment.com',
-  'tara@newgraphenvironment.com',
-  'mateo@newgraphenvironment.com',
+  # 'lucy@newgraphenvironment.com',
+  # 'tara@newgraphenvironment.com',
+  # 'mateo@newgraphenvironment.com',
   'al@newgraphenvironment.com',
   'info@newgraphenvironment.com')
 
@@ -108,14 +105,19 @@ source("~/Projects/current/Admin/contacts/contacts.R")
 
 # make a function to send them all
 email_send_batch <- function(recip){
-  smtp_send(
+  blastula::smtp_send(
     email = email,
     from = "info@newgraphenvironment.com",
     to = recip,
     subject = "Happy Holidays from New Graph Environment!",
-    credentials = creds_key(id = "gmail")
+    credentials = blastula::creds_key(id = "gmail")
   )
 }
+
+# test locally
+l |>
+  purrr::map(email_send_batch)
+
 
 # and go ahead and mail it to the whole list
 contacts_all |>
