@@ -120,14 +120,6 @@ email_send_batch <- function(recip){
   )
 }
 
-l <- c(
-  'scottfinlayson@cordilleraconsulting.ca',
-  'Brent.Murray@unbc.ca',
-  'Caitlin.Pitt@unbc.ca',
-  'alex.bevington@unbc.ca',
-  'mfjeld@nupqu.com'
-)
-
 # test locally
 l |>
   purrr::map(email_send_batch)
