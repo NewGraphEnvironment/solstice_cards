@@ -34,28 +34,19 @@ img_with_quote <- img |>
 
 magick::image_write(img_with_quote, path = "fig/peace_2025_quote.png")
 
-
-
 email_body <- blastula::add_image(
   file = 'fig/peace_2025_quote.png',
   width = "75%"
   )
 
 # include the logo
-# logo_footer <- blastula::add_image(file = 'fig/nge-full_black.png')
 logo_footer <- blastula::add_image(
   file = "fig/nge-full_black.png",
   width = "25%"
 )
 
-
 email <- blastula::compose_email(
   header = blastula::md(glue::glue(
-    # "<font size='4' color='black'><b> Thank You For Everything <b></font>
-    # <br>
-    # <font size='5' color='green'><b> Happy Solstice and Merry Christmas!<b></font>
-    # <br>
-    # <font size='3' color='red'> We appreciate your spirit of collaboration </font>"
     "
 <div style='text-align:center; line-height:1.4;'>
 
@@ -80,14 +71,17 @@ email <- blastula::compose_email(
 
     email_body
   )),
-  footer = blastula::md(glue::glue(
-    "See the code and prompts we used to produce this card
+footer = blastula::md(glue::glue(
+  "
+See how this card was made:
+[Script](https://github.com/NewGraphEnvironment/solstice_cards/blob/main/scripts/xmas_2025.R) .
+[Prompt](https://github.com/NewGraphEnvironment/solstice_cards/blob/main/scripts/prompt_2025.txt)
 
 <br>
 
 {logo_footer}
 "
-  ))
+))
 )
 
 # send just one email
@@ -102,13 +96,14 @@ email |>
 # or make a list of people to send it to.  Moved actual list to mybookdown-template/scripts
 
 l <- c(
-  # 'lucy@newgraphenvironment.com',
-  #      'tara@newgraphenvironment.com',
-  #      'mateo@newgraphenvironment.com',
-       'al@newgraphenvironment.com',
-       'info@newgraphenvironment.com')
+  'lucy@newgraphenvironment.com',
+  'tara@newgraphenvironment.com',
+  'mateo@newgraphenvironment.com',
+  'al@newgraphenvironment.com',
+  'info@newgraphenvironment.com')
 
-source("/Users/airvine/Projects/current/Admin/contacts/contacts.R")
+# grab a list of all the contacts as the contacts_all object
+source("~/Projects/current/Admin/contacts/contacts.R")
 
 
 # make a function to send them all
