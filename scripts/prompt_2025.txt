@@ -1,0 +1,33 @@
+Create a realistic deep-space scene (PNG poster look), with the Milky Way band, faint constellations, and a starfield that feels astrophotography-real (no cartoon space). In the exact center, the word PEACE appears in white italic text, softly blurred (noticeably out of focus but still readable), with a subtle glow.
+
+Around the text, place exactly 9 moons total, arranged in a clean circle, evenly spaced, with one moon centered at the top (12 o’clock). The moons are at slightly different apparent distances (some a bit larger/closer, some smaller/farther) but remain symmetrically laid out as a ring around the word.
+
+Critical constraints (must follow):
+
+Exactly 9 moons — no more, no fewer.
+
+Only ONE moon looks like Earth’s Moon (Luna): gray with familiar dark maria patches. Place Earth’s Moon at the bottom-left (~7–8 o’clock). No other moon may look like Luna (avoid generic gray cratered “Earth-moon” texture on the others).
+
+No extra tiny moons, asteroids, duplicate moons, or additional planets.
+
+Mars is NOT a moon and must not appear as a planet. If Mars appears at all, it must be only as a tiny faint reddish star-like point in the distant background (subtle, easy to miss).
+
+The other 8 moons (must be visually distinct from each other and from Luna):
+
+Io (Jupiter): sulfur-yellow/orange volcanic mottling.
+
+Europa (Jupiter): bright icy white with brown crack lines, smooth ice-shell look.
+
+Titan (Saturn): hazy orange-beige sphere with soft atmospheric edge (not gray).
+
+Iapetus (Saturn): dramatic two-tone split: one hemisphere dark, the other bright.
+
+Enceladus (Saturn): very bright white icy marble, clean and reflective.
+
+Phobos (Mars): tiny irregular potato-shaped rock, dark gray-brown, lumpy.
+
+Miranda (Uranus): patchwork “Frankenstein terrain,” sharp cliffs and mixed tones.
+
+Triton (Neptune): pale icy pink/gray with faint streaks, smooth and frosty.
+
+Lighting: consistent directional light so each moon has realistic shading. Composition: clean, balanced, poster-like. High resolution, crisp moons, realistic space background, only the word PEACE is intentionally blurred.
